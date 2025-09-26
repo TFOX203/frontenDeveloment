@@ -1,0 +1,28 @@
+/*
+*Type selector: we use the name of an element to select
+* all of the same type elements
+*/
+p{
+    background-color: aqua;
+    border:64px;
+    border-style: groove;
+    /* by default,width and height properties define the size of content*/
+    width: fit-content;
+    height: fit-content;
+    /* controls the space between the border and the content box
+    *se usa para controlar el espacio entre los bordes y el contenido
+    */
+    padding: 40px;
+    padding-top:200px; ;
+    /*Es para controlar el aspecto el espacioentre este elemento con otros*/
+    margin: 20px;
+}
+h2{
+    text-align: justify;
+    border: 7px;
+    border-style: initial;
+    border-radius: 50%;
+    width: 200px; 
+    height: auto;
+
+}

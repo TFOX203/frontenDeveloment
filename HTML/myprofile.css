@@ -1,0 +1,16 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+header{
+    background-color: aquamarine;
+    text-align: center;
+    font-size: large;
+   
+}
+.pene{
+    border-style: solid;
+    border:20px;
+    border-color: black;
+    
+
+}
