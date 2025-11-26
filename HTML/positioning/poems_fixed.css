@@ -1,0 +1,62 @@
+/*  ESTILO GLOBAL  */
+* {
+    font-family: 'Trebuchet MS', fantasy;
+    /*
+    in order to make our text more responsive to size change of the viewport,
+    we have to use a relative unit not absolute unit like px.
+    In this case, we use the viewport as our unified reference.
+    2vw is iqual to 2% of the width of the viewport
+    */
+    box-sizing: border-box;
+}
+html {
+    background-color: #1b2f1b;
+    color: #e4e4e4;
+}
+div{
+    border: 5px;
+    border-style: groove;
+    border-color: aliceblue;
+    /*
+    *What thge relative positioning does is that the element applied with relative positioning
+     will remain in its original position,when we change its position using "left/right/top/botton" 
+     it moves relaive to this original position
+    */
+    position: relative;
+    padding: 10px;
+    margin: 1vw;
+    
+}
+div :nth-child(even){
+    left: 20vw;
+}
+h2{
+    background-color:cadetblue; 
+    position: sticky;
+    width: fit-content;
+    position: sticky;
+    /*The following four the parameters are used to control the position of this element 
+    with respect to the viewport*/
+    /* The top position of the top border of this element relative to the viewport*/
+    top: 20px;
+    left: auto;
+    right: auto;
+    bottom: auto;
+}
+nav{
+    position: fixed;
+    z-index: 5;
+    background-color: aquamarine;
+    margin: 2vw;
+    padding: 1vw;
+    top: 0vw;
+}
+main{
+    margin-top: 8vw;
+}
+a{
+    padding-left: 3vw;
+    padding-right: 3vw;
+    padding-bottom: 1vw;
+    border: 3px solid black;
+}

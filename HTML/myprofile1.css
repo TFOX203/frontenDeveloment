@@ -1,0 +1,152 @@
+* {
+    font-family: fantasy;
+}
+
+html {
+    border: 2px solid rgb(0, 16, 2);
+}
+
+body {
+    border: 2px dashed rgb(0, 16, 2);
+    /* width: 100%; */
+}
+
+header {
+    border: 2px dashed rgb(0, 16, 2);
+    text-align: center;
+    font-size: large;
+    background-color: bisque;
+}
+
+/* . is class selector, it allows us to select all tags with the same 
+class value */
+.zurra-pal-kcurra {
+    border: 3px dashed rgb(0, 16, 2);
+    border-radius: 50%;
+    width: 20%;
+}
+
+.sobre-mi-columna-1 {
+    width: 40%;
+    /* make all the elements inside a container float to the left forming 
+    a line */
+    float: left;
+    height: 600px;
+    border: 8px dashed black;
+    border-radius: 3%;
+    /* create space between elements */
+    margin: 10px;
+    /* create space between an element and its border */
+    padding: 15px;
+}
+
+.cuadrado3{
+ background-image: url(../HTML/codigo-programacion-resumen-antecedentes-tecnologia-desarrollador-software-script-computadora_34663-31.webp);
+ 
+}
+.cuadrado4{
+ background-image: url(../HTML/Walter-White-Breaking-Bad.webp);
+ background-size: cover;
+ background-position: center;
+
+}
+/* > is used to select children of a parent element, in this 
+case, the parent element is "section" while the children is all 
+its "h1" child */
+section>h1 {
+    background-color: beige;
+    text-align: center;
+}
+
+/* # + id of an element to select a unique element
+# is css id selector */
+#about-me-column-21 {
+    background-color: rgb(112, 112, 83);
+}
+
+#myprojects-column-4 {
+    background: url(../html/images/myprofile-big.png);
+    background-size: cover;
+    background-position: center;
+}
+
+section{
+    /* Remove the effects caused by "float" from other elements */
+    clear: both;
+}
+.myprojects-column-4{
+    width: 22%;
+    float: left;
+    background-color: rgb(112, 223, 223);
+    padding: 10px;
+    border: 3px solid black;
+    border-radius: 20px;
+    height: 200px;
+    text-align: center;
+    margin: 2px;
+}
+
+.proj1{
+    background: url(../html/images/Project1.png);
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+}
+
+footer{
+    clear: both;
+}
+.footer-icon-style{
+    width: 30px;
+    height: 30px;
+}
+section{
+    border: 2px solid rgb(210, 199, 155);
+    margin: 3px;
+}
+#experience-tabla1>tabla1{
+    width: 100%;
+    /* padding-left: 100px; */
+   
+    padding-top: 50px;
+    padding-bottom: 40px;
+    
+    /* make the children borders collapse */
+    border-collapse: collapse;
+}
+#experience-tabla1>tabla1>tr, td{
+    padding: 40px;
+    border: 2px solid rgb(109, 147, 152);
+    /* border-collapse: collapse; */
+}
+/* :nth-child(odd) is used to select all odd children elements of a type */
+/* :nth-child(even) is used to select all even children elements of a type */
+tr:nth-child(even){
+    background-color: rgb(148, 246, 211);
+}
+/* table, tr, td{
+     border: 1px solid rgb(109, 147, 152);
+} */
+
+
+/* The ::before pseudo-element is an inline box generated as an immediate child 
+of the element it is associated with, or the "originating element". 
+It is often used to add cosmetic content to an element via the content property, 
+such as icons, quote marks, or other decoration. 
+We use this command to create a child element as the parent element's first child */
+#projects-section>div:nth-child(odd)::before {
+	background-image: url('../HTML/codigo-programacion-resumen-antecedentes-tecnologia-desarrollador-software-script-computadora_34663-31.webp');
+	background-size: cover;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	left: 0px;
+	opacity: 0.2;
+    /* It is necessary to put an empty content */
+    content: "";
+}
+
+#projects-section>div:nth-child(odd) {
+	position: relative;
+}

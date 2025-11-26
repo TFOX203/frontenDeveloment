@@ -1,0 +1,183 @@
+/*  ESTILO GLOBAL  */
+* {
+    font-family: 'Trebuchet MS', fantasy;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #0b0b0b;
+    color: #e4e4e4;
+}
+
+body {
+    margin: 0;
+    border: 2px solid #1a1a1a;
+    background: linear-gradient(180deg, #101a10 0%, #0d0d0d 100%);
+}
+
+/*  CABECERA */
+header {
+    text-align: center;
+    padding: 30px;
+    background: radial-gradient(circle, #1b2f1b 0%, #0b0b0b 90%);
+    border-bottom: 2px solid #3a3a3a;
+}
+
+header h1 {
+    color: #c0e86c;
+    font-size: 3em;
+    margin: 10px 0;
+    text-shadow: 0 0 10px #b2f252;
+}
+
+header h2 {
+    font-size: 1.8em;
+    color: #86b93b;
+    letter-spacing: 2px;
+}
+
+.zurra-pal-kcurra {
+    border: 3px solid #8bc34a;
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    box-shadow: 0 0 20px #76ff03;
+}
+
+/*  SECCIONES  */
+section {
+    border: 2px solid #2a2a2a;
+    margin: 30px auto;
+    padding: 20px;
+    width: 90%;
+    border-radius: 10px;
+    background: rgba(34, 34, 34, 0.8);
+    box-shadow: 0 0 10px rgba(0, 255, 128, 0.2);
+}
+
+section > h1 {
+    background-color: #173217;
+    color: #c6ff00;
+    text-align: center;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+/*  SOBRE MÍ  */
+.sobre-mi-columna-1 {
+    width: 45%;
+    float: left;
+    height: auto;
+    border: 2px dashed #388e3c;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 0 10px rgba(100, 255, 100, 0.2);
+}
+
+.sobre-mi-columna-1 img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+    border: 2px solid #4caf50;
+}
+
+/*  PROYECTOS  */
+#projects-section {
+    clear: both;
+}
+
+.myprojects-column-4 {
+    width: 23%;
+    float: left;
+    background-color: rgba(30, 60, 30, 0.9);
+    padding: 15px;
+    border: 2px solid #4caf50;
+    border-radius: 10px;
+    height: 250px;
+    text-align: center;
+    margin: 1%;
+    color: #d7ffd9;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.myprojects-column-4:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #7fff00;
+}
+
+.myprojects-column-4 h2 {
+    color: #c6ff00;
+    margin-bottom: 10px;
+}
+
+.cuadrado3 {
+    background-image: url('codigo-programacion-resumen-antecedentes-tecnologia-desarrollador-software-script-computadora_34663-31.webp');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+}
+
+.cuadrado4 {
+    background-image: url('Walter-White-Breaking-Bad.webp');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.7;
+}
+
+/*  TABLA EXPERIENCIAS  */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #4caf50;
+    padding: 12px;
+}
+
+th {
+    background-color: #1a331a;
+    color: #c6ff00;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(76, 175, 80, 0.2);
+}
+
+tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/*  PIE DE PÁGINA  */
+footer {
+    clear: both;
+    text-align: center;
+    padding: 20px;
+    background: #0d130d;
+    border-top: 2px solid #2e7d32;
+}
+
+footer a {
+    color: #c6ff00;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: #76ff03;
+}
+
+.footer-icon {
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
