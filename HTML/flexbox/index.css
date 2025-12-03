@@ -2,5 +2,23 @@
     font-family: fantasy;
 }
 .Logo{
-    
+    max-width: 10vw;
+    min-width: 3vw;
+}
+/*> is direct child selector*/
+nav>ul{
+    border: 2px solid black;
+    list-style: none;
+    /* "display" is a property used to organize a group of elements */
+    /*"flex" is a one dimesional display style,which
+    distribude the elements insidee the flex container along the main axis*/
+    display: flex;
+    /* choose he main axis direction along which the flex items are positioned*/
+    flex-direction: row;
+    /* Choose the way to distribute the flex items along the main axis*/
+    /* center/flex-start/flex-end/space-around/space-evenly/space-between*/
+    justify-content: space-around;
+}
+nav>ul>a{
+    margin:2vw;
 }
