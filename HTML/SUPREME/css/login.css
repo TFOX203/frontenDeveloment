@@ -1,0 +1,99 @@
+/* Quita márgenes y define una fuente general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Estilo general del cuerpo de la página */
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #ffffff, #f2f2f2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Fondo rojo con efecto de difuminado */
+.background-blur {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: red;
+    filter: blur(150px);
+    opacity: 0.35;
+}
+
+/* Caja principal del login */
+.login-card {
+    position: relative;
+    width: 320px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    animation: fadeIn 1s ease;
+}
+
+/* Estilo del logo */
+.logo {
+    background-color: red;
+    color: white;
+    padding: 12px;
+    margin-bottom: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 5px;
+}
+
+/* Estilo de los campos del formulario */
+form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+    font-size: 14px;
+}
+
+/* Efecto cuando el usuario hace clic en un input */
+form input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px red;
+}
+
+/* Estilo del botón */
+form button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, red, #cc0000);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Efecto al pasar el ratón por el botón */
+form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
