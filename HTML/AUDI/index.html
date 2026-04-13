@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audi — Vorsprung durch Technik</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           RESET & VARIABLES GLOBALES
+           ============================================ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-black: #000000;
+            --color-dark: #0e0e0e;
+            --color-dark-gray: #1a1a1a;
+            --color-medium-gray: #333333;
+            --color-gray: #666666;
+            --color-light-gray: #999999;
+            --color-silver: #cccccc;
+            --color-off-white: #f0f0f0;
+            --color-white: #ffffff;
+            --color-red: #bb0a1e;
+            --color-red-dark: #9a0818;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-fast: all 0.25s ease;
+            --shadow-card: 0 10px 40px rgba(0, 0, 0, 0.08);
+            --shadow-card-hover: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-medium-gray);
+            background-color: var(--color-white);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ============================================
+           UTILIDADES
+           ============================================ */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--color-red);
+            margin-bottom: 16px;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .section-label::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 1.5px;
+            background-color: var(--color-red);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 700;
+            color: var(--color-dark);
+            line-height: 1.15;
+            letter-spacing: -0.5px;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: var(--color-gray);
+            line-height: 1.8;
+            max-width: 560px;
+        }
+
+        /* ============================================
+           BOTONES
+           ============================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 36px;
+            font-family: var(--font-main);
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background-color: var(--color-red);
+            color: var(--color-white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(187, 10, 30, 0.35);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--color-white);
+            border: 1.5px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--color-white);
+            color: var(--color-dark);
+            border-color: var(--color-white);
+            transform: translateY(-2px);
+        }
+
+        .btn-dark {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+        }
+
+        .btn-dark:hover {
+            background-color: var(--color-medium-gray);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-arrow::after {
+            content: '→';
+            transition: var(--transition-fast);
+        }
+
+        .btn-arrow:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* ============================================
+           HEADER / NAVEGACIÓN
+           ============================================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+            padding: 0;
+            transition: var(--transition-smooth);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        /* Logo Audi — 4 anillos con CSS */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            position: relative;
+        }
+
+        .rings {
+            display: flex;
+            align-items: center;
+            position: relative;
+            height: 32px;
+        }
+
+        .ring {
+            width: 28px;
+            height: 28px;
+            border: 2px solid var(--color-silver);
+            border-radius: 50%;
+            margin-left: -8px;
+            transition: var(--transition-smooth);
+        }
+
+        .ring:first-child {
+            margin-left: 0;
+        }
+
+        .logo:hover .ring {
+            border-color: var(--color-white);
+        }
+
+        .logo-text {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-white);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-left: 16px;
+        }
+
+        /* Menú de navegación */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-link {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.75);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            padding: 8px 0;
+            position: relative;
+            transition: var(--transition-fast);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background-color: var(--color-red);
+            transition: var(--transition-smooth);
+        }
+
+        .nav-link:hover {
+            color: var(--color-white);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hamburguesa móvil (solo CSS) */
+        .menu-toggle {
+            display: none;
+        }
+
+        .menu-toggle-label {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            cursor: pointer;
+            width: 28px;
+            height: 28px;
+            z-index: 1001;
+        }
+
+        .menu-toggle-label span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background-color: var(--color-white);
+            transition: var(--transition-smooth);
+            transform-origin: center;
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background-color: var(--color-dark);
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 100%),
+                url('https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=1920&q=80') center/cover no-repeat;
+            transform: scale(1.05);
+            animation: heroZoom 20s ease-in-out infinite alternate;
+        }
+
+        @keyframes heroZoom {
+            0% { transform: scale(1.05); }
+            100% { transform: scale(1.12); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--color-red);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .hero-title {
+            font-size: clamp(2.8rem, 6vw, 5rem);
+            font-weight: 700;
+            color: var(--color-white);
+            line-height: 1.05;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+        }
+
+        .hero-title span {
+            color: var(--color-red);
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            max-width: 520px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* Indicador de scroll */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            animation: fadeInUp 1s ease 1s both;
+        }
+
+        .scroll-indicator span {
+            font-size: 0.65rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--color-red), transparent);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 1; transform: scaleY(1); }
+            50% { opacity: 0.4; transform: scaleY(0.6); }
+        }
+
+        /* ============================================
+           SECCIÓN MODELOS
+           ============================================ */
+        .models {
+            padding: 120px 0;
+            background-color: var(--color-off-white);
+        }
+
+        .models-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .models-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        .models-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .model-card {
+            background-color: var(--color-white);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .model-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-card-hover);
+        }
+
+        .model-image-wrapper {
+            position: relative;
+            overflow: hidden;
+            height: 260px;
+            background-color: var(--color-dark-gray);
+        }
+
+        .model-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .model-card:hover .model-image-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .model-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background-color: var(--color-red);
+            color: var(--color-white);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 2px;
+        }
+
+        .model-info {
+            padding: 32px 28px;
+        }
+
+        .model-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--color-dark);
+            margin-bottom: 4px;
+            letter-spacing: -0.3px;
+        }
+
+        .model-variant {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--color-red);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+
+        .model-description {
+            font-size: 0.92rem;
+            font-weight: 300;
+            color: var(--color-gray);
+            line-height: 1.7;
+            margin-bottom: 24px;
+        }
+
+        .model-specs {
+            display: flex;
+            gap: 24px;
+            padding-top: 20px;
+            border-top: 1px solid var(--color-off-white);
+        }
+
+        .spec {
+            text-align: center;
+            flex: 1;
+        }
+
+        .spec-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--color-dark);
+            display: block;
+        }
+
+        .spec-label {
+            font-size: 0.68rem;
+            font-weight: 500;
+            color: var(--color-light-gray);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .model-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--color-dark);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition-fast);
+        }
+
+        .model-link::after {
+            content: '→';
+            transition: var(--transition-fast);
+        }
+
+        .model-link:hover {
+            color: var(--color-red);
+        }
+
+        .model-link:hover::after {
+            transform: translateX(4px);
+            color: var(--color-red);
+        }
+
+        /* ============================================
+           SECCIÓN TECNOLOGÍA
+           ============================================ */
+        .technology {
+            padding: 120px 0;
+            background-color: var(--color-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .technology::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(187, 10, 30, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .tech-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .tech-content .section-title {
+            color: var(--color-white);
+        }
+
+        .tech-content .section-subtitle {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 40px;
+        }
+
+        .tech-features {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            margin-bottom: 48px;
+        }
+
+        .tech-feature {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .tech-feature-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background: rgba(187, 10, 30, 0.15);
+            border: 1px solid rgba(187, 10, 30, 0.3);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-red);
+            font-size: 1.2rem;
+            transition: var(--transition-smooth);
+        }
+
+        .tech-feature:hover .tech-feature-icon {
+            background: var(--color-red);
+            color: var(--color-white);
+            border-color: var(--color-red);
+        }
+
+        .tech-feature-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-white);
+            margin-bottom: 4px;
+        }
+
+        .tech-feature-text {
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
+        }
+
+        .tech-image-container {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .tech-image-container img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .tech-image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .tech-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        /* ============================================
+           SECCIÓN CTA (Call To Action)
+           ============================================ */
+        .cta {
+            position: relative;
+            padding: 140px 0;
+            overflow: hidden;
+            background-color: var(--color-dark);
+        }
+
+        .cta-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(187,10,30,0.3) 100%),
+                url('https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1920&q=80') center/cover no-repeat;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 700;
+            color: var(--color-white);
+            line-height: 1.1;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .cta-description {
+            font-size: 1.05rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .footer {
+            background-color: var(--color-black);
+            color: rgba(255, 255, 255, 0.5);
+            padding: 80px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            padding-bottom: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-brand .logo-text {
+            font-size: 1.1rem;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .footer-brand p {
+            font-size: 0.88rem;
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 320px;
+            margin-bottom: 28px;
+        }
+
+        /* Redes sociales */
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            transition: var(--transition-smooth);
+        }
+
+        .social-link:hover {
+            background-color: var(--color-red);
+            border-color: var(--color-red);
+            color: var(--color-white);
+            transform: translateY(-3px);
+        }
+
+        .footer-column h4 {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--color-white);
+            margin-bottom: 24px;
+        }
+
+        .footer-column ul {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .footer-column a {
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.45);
+            transition: var(--transition-fast);
+            position: relative;
+            padding-left: 0;
+        }
+
+        .footer-column a:hover {
+            color: var(--color-white);
+            padding-left: 6px;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 0;
+            font-size: 0.78rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.3);
+            transition: var(--transition-fast);
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--color-white);
+        }
+
+        /* ============================================
+           RESPONSIVE — TABLET
+           ============================================ */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 32px;
+            }
+
+            .models-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tech-grid {
+                gap: 50px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* ============================================
+           RESPONSIVE — MÓVIL
+           ============================================ */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            /* Menú hamburguesa con CSS puro */
+            .menu-toggle-label {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 360px;
+                height: 100vh;
+                background-color: var(--color-dark);
+                flex-direction: column;
+                justify-content: center;
+                gap: 0;
+                padding: 40px;
+                transition: right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                box-shadow: -10px 0 40px rgba(0,0,0,0.5);
+            }
+
+            .menu-toggle:checked ~ .nav-menu {
+                right: 0;
+            }
+
+            .menu-toggle:checked ~ .menu-toggle-label span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .menu-toggle:checked ~ .menu-toggle-label span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle:checked ~ .menu-toggle-label span:nth-child(3) {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            .nav-link {
+                font-size: 1rem;
+                padding: 16px 0;
+                border-bottom: 1px solid rgba(255,255,255,0.05);
+                width: 100%;
+            }
+
+            /* Hero */
+            .hero {
+                min-height: 600px;
+            }
+
+            .hero-title {
+                font-size: 2.4rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                text-align: center;
+                justify-content: center;
+            }
+
+            /* Modelos */
+            .models {
+                padding: 80px 0;
+            }
+
+            .models-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .models-header {
+                margin-bottom: 50px;
+            }
+
+            /* Tecnología */
+            .technology {
+                padding: 80px 0;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .tech-image-container img {
+                height: 300px;
+            }
+
+            /* CTA */
+            .cta {
+                padding: 100px 0;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Footer */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .model-specs {
+                gap: 12px;
+            }
+
+            .model-info {
+                padding: 24px 20px;
+            }
+        }
+            #timePanel {
+            color: var(--color-white);
+            font-weight: 500;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 2px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+}
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+         HEADER / NAVEGACIÓN
+         ============================================ -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
+            <div id="timePanel">00:00:00</div>
+
+                <!-- Logo -->
+                <a href="#" class="logo">
+                    <div class="rings">
+                        <div class="ring"></div>
+                        <div class="ring"></div>
+                        <div class="ring"></div>
+                        <div class="ring"></div>
+                    </div>
+                    <span class="logo-text">Audi</span>
+                </a>
+
+                <!-- Checkbox para menú móvil (CSS puro) -->
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="menu-toggle-label">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+
+                <!-- Menú de navegación -->
+                <nav class="nav-menu">
+                    <a href="#inicio" class="nav-link">Inicio</a>
+                    <a href="#modelos" class="nav-link">Modelos</a>
+                    <a href="#tecnologia" class="nav-link">Tecnología</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================
+         HERO SECTION
+         ============================================ -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-label">Nuevo Audi e-tron GT</span>
+                <h1 class="hero-title">El futuro es <span>eléctrico</span></h1>
+                <p class="hero-description">
+                    Descubre la nueva generación de vehículos eléctricos que combinan
+                    rendimiento extraordinario con diseño vanguardista y sostenibilidad.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#modelos" class="btn btn-primary btn-arrow">Explorar modelos</a>
+                    <a href="#tecnologia" class="btn btn-outline">Descubrir más</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCIÓN MODELOS
+         ============================================ -->
+    <section class="models" id="modelos">
+        <div class="container">
+
+            <div class="models-header">
+                <span class="section-label">Gama de modelos</span>
+                <h2 class="section-title">Diseñado para emocionar</h2>
+                <p class="section-subtitle">
+                    Cada Audi es una obra maestra de ingeniería. Descubre los modelos
+                    que definen el estándar de la industria automotriz premium.
+                </p>
+            </div>
+
+            <div class="models-grid">
+
+                <!-- Modelo 1: Audi RS e-tron GT -->
+                <article class="model-card">
+                    <div class="model-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80"
+                             alt="Audi RS e-tron GT">
+                        <span class="model-badge">Nuevo</span>
+                    </div>
+                    <div class="model-info">
+                        <h3 class="model-name">Audi RS e-tron GT</h3>
+                        <span class="model-variant">Performance eléctrico</span>
+                        <p class="model-description">
+                            El gran turismo eléctrico definitivo. Potencia brutal con
+                            cero emisiones y una aceleración que desafía la gravedad.
+                        </p>
+                        <div class="model-specs">
+                            <div class="spec">
+                                <span class="spec-value">646</span>
+                                <span class="spec-label">CV</span>
+                            </div>
+                            <div class="spec">
+                                <span class="spec-value">3.3s</span>
+                                <span class="spec-label">0-100</span>
+                            </div>
+                            <div class="spec">
+                                <span class="spec-value">472</span>
+                                <span class="spec-label">km rango</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Modelo 2: Audi RS6 Avant -->
+                <article class="model-card">
+                    <div class="model-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1616422285623-13ff0162193c?w=800&q=80"
+                             alt="Audi RS6 Avant">
+                    </div>
+                    <div class="model-info">
+                        <h3 class="model-name">Audi RS6 Avant</h3>
+                        <span class="model-variant">Sportback performance</span>
+                        <p class="model-description">
+                            El deportivo más versátil del mundo. Motor V8 biturbo con
+                            tracción quattro y un diseño que impone respeto.
+                        </p>
+                        <div class="model-specs">
+                            <div class="spec">
+                                <span class="spec-value">630</span>
+                                <span class="spec-label">CV</span>
+                            </div>
+                            <div class="spec">
+                                <span class="spec-value">3.4s</span>
+                                <span class="spec-label">0-100</span>
+                            </div>
+                            <div class="spec">
+                                <span class="spec-value">305</span>
+                                <span class="spec-label">km/h máx</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Modelo 3: Audi Q8 -->
+                <article class="model-card">
+                    <div class="model-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=800&q=80"
+                             alt="Audi Q8">
+                        <span class="model-badge">Popular</span>
+                    </div>
+                    <div class="model-info">
+                        <h3 class="model-name">Audi Q8</h3>
+                        <span class="model-variant">SUV coupé premium</span>
+                        <p class="model-description">
+                            La máxima expresión de lujo y tecnología en formato SUV.
+                            Confort supremo con la deportividad que define a Audi.
+                        </p>
+                        <div class="model-specs">
+                            <div class="spec">
+                                <span class="spec-value">340</span>
+                                <span class="spec-label">CV</span>
+                            </div>
+                            <div class="spec">
+                                <span class="spec-value">5.6s</span>
+                                <span class="spec-label">0-100</span>
+                            </div>
+                            <div class="spec">
+                                <span class="spec-value">250</span>
+                                <span class="spec-label">km/h máx</span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCIÓN TECNOLOGÍA
+         ============================================ -->
+    <section class="technology" id="tecnologia">
+        <div class="container">
+            <div class="tech-grid">
+
+                <!-- Columna de contenido -->
+                <div class="tech-content">
+                    <span class="section-label">Innovación</span>
+                    <h2 class="section-title">Tecnología que define el mañana</h2>
+                    <p class="section-subtitle">
+                        Cada innovación Audi nace de la obsesión por superar los límites
+                        de lo posible. Vorsprung durch Technik.
+                    </p>
+
+                    <div class="tech-features">
+
+                        <div class="tech-feature">
+                            <div class="tech-feature-icon">⚡</div>
+                            <div>
+                                <h4 class="tech-feature-title">e-tron Technology</h4>
+                                <p class="tech-feature-text">
+                                    Plataforma eléctrica de 800V con carga ultrarrápida.
+                                    Del 5% al 80% en tan solo 22 minutos.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="tech-feature">
+                            <div class="tech-feature-icon">◉</div>
+                            <div>
+                                <h4 class="tech-feature-title">Matrix LED & Laser</h4>
+                                <p class="tech-feature-text">
+                                    Sistema de iluminación inteligente con control
+                                    individual de cada diodo LED para máxima visibilidad.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="tech-feature">
+                            <div class="tech-feature-icon">◎</div>
+                            <div>
+                                <h4 class="tech-feature-title">quattro Ultra</h4>
+                                <p class="tech-feature-text">
+                                    Tracción total inteligente que distribuye el par
+                                    motor de forma predictiva entre los ejes.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="tech-feature">
+                            <div class="tech-feature-icon">◆</div>
+                            <div>
+                                <h4 class="tech-feature-title">Virtual Cockpit Plus</h4>
+                                <p class="tech-feature-text">
+                                    Pantalla digital de 12.3" con gráficos 3D en tiempo
+                                    real y personalización total del conductor.
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <a href="#" class="btn btn-primary btn-arrow">Descubrir tecnología</a>
+                </div>
+
+                <!-- Columna de imagen -->
+                <div class="tech-image-container">
+                    <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=800&q=80"
+                         alt="Interior tecnológico Audi">
+                    <div class="tech-image-overlay"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECCIÓN CTA (Call To Action)
+         ============================================ -->
+    <section class="cta" id="contacto">
+        <div class="cta-bg"></div>
+        <div class="container">
+            <div class="cta-content">
+                <span class="section-label" style="color: var(--color-white); padding-left: 0;">
+                    Experiencia Audi
+                </span>
+                <h2 class="cta-title">¿Listo para vivir la experiencia?</h2>
+                <p class="cta-description">
+                    Reserva una prueba de conducción personalizada y descubre por qué
+                    millones de conductores eligen Audi. El futuro de la movilidad
+                    comienza hoy.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary btn-arrow">Reservar prueba</a>
+                    <a href="#" class="btn btn-outline">Configurar tu Audi</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+
+                <!-- Columna de marca -->
+                <div class="footer-brand">
+                    <span class="logo-text">Audi</span>
+                    <p>
+                        Vorsprung durch Technik. Desde 1909, Audi ha liderado la
+                        innovación automotriz con un compromiso inquebrantable con
+                        la excelencia, el diseño y la tecnología de vanguardia.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook">f</a>
+                        <a href="#" class="social-link" aria-label="Instagram">ig</a>
+                        <a href="#" class="social-link" aria-label="Twitter">𝕏</a>
+                        <a href="#" class="social-link" aria-label="YouTube">▶</a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">in</a>
+                    </div>
+                </div>
+
+                <!-- Columna: Modelos -->
+                <div class="footer-column">
+                    <h4>Modelos</h4>
+                    <ul>
+                        <li><a href="#">Audi A3</a></li>
+                        <li><a href="#">Audi A4</a></li>
+                        <li><a href="#">Audi A6</a></li>
+                        <li><a href="#">Audi Q5</a></li>
+                        <li><a href="#">Audi Q8</a></li>
+                        <li><a href="#">Audi e-tron</a></li>
+                        <li><a href="#">Audi RS</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna: Compañía -->
+                <div class="footer-column">
+                    <h4>Compañía</h4>
+                    <ul>
+                        <li><a href="#">Sobre Audi</a></li>
+                        <li><a href="#">Carreras</a></li>
+                        <li><a href="#">Prensa</a></li>
+                        <li><a href="#">Sostenibilidad</a></li>
+                        <li><a href="#">Innovación</a></li>
+                        <li><a href="#">Audi Sport</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna: Soporte -->
+                <div class="footer-column">
+                    <h4>Soporte</h4>
+                    <ul>
+                        <li><a href="#">Contacto</a></li>
+                        <li><a href="#">Concesionarios</a></li>
+                        <li><a href="#">Servicio postventa</a></li>
+                        <li><a href="#">Garantía</a></li>
+                        <li><a href="#">Financiación</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Footer inferior -->
+            <div class="footer-bottom">
+                <span>&copy; 2025 Audi AG. Todos los derechos reservados.</span>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacidad</a>
+                    <a href="#">Términos legales</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+        <script src="timer.js"></script>
+
+</body>
+</html>
