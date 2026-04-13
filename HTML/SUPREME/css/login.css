@@ -1,99 +1,98 @@
-/* Quita márgenes y define una fuente general */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+.login-page {
+  height: 100vh;
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Estilo general del cuerpo de la página */
-body {
-    height: 100vh;
-    background: linear-gradient(135deg, #ffffff, #f2f2f2);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
+/* DIFUMINADO ROJO */
+.red-blur {
+  position: absolute;
+  width: 25rem;
+  height: 25rem;
+  background: red;
+  filter: blur(150px);
+  opacity: 0.35;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-/* Fondo rojo con efecto de difuminado */
-.background-blur {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: red;
-    filter: blur(150px);
-    opacity: 0.35;
+/* CONTENEDOR */
+.login-wrapper {
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
-/* Caja principal del login */
-.login-card {
-    position: relative;
-    width: 320px;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-    text-align: center;
-    animation: fadeIn 1s ease;
+/* CAJA LOGIN */
+.login-box {
+  background: white;
+  width: 22rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.15);
 }
 
-/* Estilo del logo */
-.logo {
-    background-color: red;
-    color: white;
-    padding: 12px;
-    margin-bottom: 25px;
-    font-weight: bold;
-    letter-spacing: 2px;
-    border-radius: 5px;
+/* TÍTULO */
+.login-box h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
-/* Estilo de los campos del formulario */
-form input {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 18px;
-    border: none;
-    border-radius: 8px;
-    background-color: #f0f0f0;
-    font-size: 14px;
+/* LÍNEA */
+.login-box hr {
+  border: none;
+  height: 1px;
+  background: #ddd;
+  margin-bottom: 1.5rem;
 }
 
-/* Efecto cuando el usuario hace clic en un input */
-form input:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px red;
+/* FORM */
+.login-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-/* Estilo del botón */
-form button {
-    width: 100%;
-    padding: 12px;
-    background: linear-gradient(135deg, red, #cc0000);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+/* LABEL */
+.login-box label {
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
-/* Efecto al pasar el ratón por el botón */
-form button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+/* INPUT */
+.login-box input {
+  padding: 0.7rem;
+  font-size: 0.95rem;
+  border-radius: 0.3rem;
+  border: 1px solid #ccc;
 }
 
-/* Animación de aparición */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* TEXTO */
+.forgot {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.forgot a {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* BOTÓN */
+.login-box button {
+  margin-top: 1.5rem;
+  padding: 0.7rem;
+  background: red;
+  color: white;
+  border: none;
+  font-size: 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
 }

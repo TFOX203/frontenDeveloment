@@ -1,0 +1,32 @@
+*{
+    background-color: antiquewhite;
+    font-family:cursive;
+}
+/* We use @media to query the parameters related with this
+device such as its screen width and height etc*/
+
+
+/*The following media query means that if the widht of screen is less than 400px new background and font will be applied*/
+@media screen and (width < 300px){
+*{
+    background-color: aquamarine;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+}
+}
+
+@media screen and (width < 600px){
+*{
+    background-color: aquamarine;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+}
+}
+
+@media screen and (width < 950px){
+*{
+    background-color: aquamarine;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+}
+}
