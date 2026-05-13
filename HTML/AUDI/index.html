@@ -1,65 +1,66 @@
-<!DOCTYPE html>
-
+<!<!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Audi — Vorsprung durch Technik</title>
 
-```
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<!-- ❗ CORREGIDO -->
-<link rel="stylesheet" href="index.css">
-```
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
 
-<header class="header">
-    <div class="container">
-        <div class="header-inner">
+    <!-- CANVAS DEL HUMO -->
+    <canvas id="smoke_canvas"></canvas>
 
-```
-        <!-- RELOJ -->
-        <div id="timePanel">00:00:00</div>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="container">
+            <div class="header-inner">
 
-        <!-- CONTROLES DE TEMA -->
-        <div class="controls">
-            <button class="theme-btn" data-theme="light">☀️</button>
-            <button class="theme-btn" data-theme="dark">🌙</button>
-            <button class="theme-btn" data-theme="neon">🧪</button>
-            <button class="theme-btn" data-theme="forest">🌲</button>
-        </div>
+                <!-- RELOJ -->
+                <div id="timePanel">00:00:00</div>
 
-        <!-- Logo -->
-        <a href="#" class="logo">
-            <div class="rings">
-                <div class="ring"></div>
-                <div class="ring"></div>
-                <div class="ring"></div>
-                <div class="ring"></div>
+                <!-- CONTROLES -->
+                <div class="controls">
+                    <button class="theme-btn" data-theme="light">☀️</button>
+                    <button class="theme-btn" data-theme="dark">🌙</button>
+                    <button class="theme-btn" data-theme="neon">🧪</button>
+                    <button class="theme-btn" data-theme="forest">🌲</button>
+                </div>
+
+                <!-- LOGO -->
+                <a href="#" class="logo">
+                    <div class="rings">
+                        <div class="ring"></div>
+                        <div class="ring"></div>
+                        <div class="ring"></div>
+                        <div class="ring"></div>
+                    </div>
+
+                    <span class="logo-text">Audi</span>
+                </a>
+
+                <!-- NAV -->
+                <nav class="nav-menu">
+                    <a href="#inicio" class="nav-link">Inicio</a>
+                    <a href="#modelos" class="nav-link">Modelos</a>
+                    <a href="#tecnologia" class="nav-link">Tecnología</a>
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </nav>
+
             </div>
-            <span class="logo-text">Audi</span>
-        </a>
-
-        <!-- Menú -->
-        <nav class="nav-menu">
-            <a href="#inicio" class="nav-link">Inicio</a>
-            <a href="#modelos" class="nav-link">Modelos</a>
-            <a href="#tecnologia" class="nav-link">Tecnología</a>
-            <a href="#contacto" class="nav-link">Contacto</a>
-        </nav>
-
-    </div>
-</div>
-```
-
-</header>
+        </div>
+    </header>
 
 <!-- RESTO DE TU WEB IGUAL (no lo toco) -->
 
@@ -391,6 +392,7 @@
     </footer>
        <script src="timer.js"></script> 
        <script src="theme.js"></script>
+       <script src="smoke.js"></script>
 
 </body>
 </html>
